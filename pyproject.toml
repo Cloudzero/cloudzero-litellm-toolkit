@@ -32,7 +32,7 @@ dependencies = [
     "connectorx>=0.3.0",
     "PyYAML>=6.0.0",
     "rich>=13.0.0",
-    "litellm>=1.74.7",
+    "litellm>=1.83.0",
 ]
 
 [project.urls]
