@@ -1,6 +1,6 @@
 [project]
 name = "ll2cz"
-version = "0.6.2"
+version = "0.7.0"
 description = "Transform LiteLLM database data into CloudZero AnyCost CBF format"
 readme = "README.md"
 authors = [
@@ -15,7 +15,6 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -24,7 +23,7 @@ classifiers = [
     "Topic :: System :: Systems Administration",
     "Topic :: Utilities",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = [
     "psycopg[binary]>=3.1.0",
     "polars>=0.20.0",
@@ -32,7 +31,7 @@ dependencies = [
     "connectorx>=0.3.0",
     "PyYAML>=6.0.0",
     "rich>=13.0.0",
-    "litellm>=1.83.0",
+    "litellm>=1.103.1",
 ]
 
 [project.urls]
@@ -45,9 +44,13 @@ Changelog = "https://github.com/Cloudzero/cloudzero-litellm-toolkit/blob/main/CH
 [project.scripts]
 ll2cz = "ll2cz.cli:main"
 
+[tool.uv]
+# cz-standards govern-dependency-freshness: only resolve packages at least 7 days old
+exclude-newer = "7 days"
+
 [tool.ruff]
 line-length = 120
-target-version = "py39"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W", "C"]

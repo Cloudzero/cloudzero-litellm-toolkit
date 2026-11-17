@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-17
+
+### Removed
+- **Python 3.9 support.** `requires-python` is now `>=3.10`. Python 3.9 is end-of-life, and the fixed
+  releases of litellm (1.83.10+) and aiohttp (3.14.x) require Python 3.10 or newer. Python 3.9 users
+  stay on ll2cz 0.6.2, because pip honors `Requires-Python`.
+
+### Security
+- Raised the litellm floor to `>=1.103.1` (the lowest release with no open GitHub advisories). This
+  covers GHSA-jjhc-v7c2-5hh6 / CVE-2026-35030 and later LiteLLM advisories. The lock resolves litellm 1.108.3.
+- Locked aiohttp 3.14.5, which fixes GHSA-jm3w-gw2p-xjfj and seven other high-severity advisories
+  (fixed in 3.14.4).
+
+### Changed
+- Added `[tool.uv] exclude-newer = "7 days"` so dependency resolution only uses packages at least
+  7 days old (cz-standards dependency freshness policy). Relocked `uv.lock` with this setting.
+- Ruff `target-version` is now `py310`.
+
 ## [0.6.2] - 2025-01-29
 
 ### Added
